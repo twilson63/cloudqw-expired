@@ -1,0 +1,17 @@
+{
+  "name": "cloudqw-expired",
+  "version": "0.0.1",
+  "description": "A cloudq worker that deleted expired jobs on cloudq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Wilson",
+  "license": "MIT",
+  "dependencies": {
+    "request": "~2.10.0",
+    "cloudq-worker": "0.0.2",
+    "event-stream": "~2.2.0",
+    "JSONStream": "~0.3.1"
+  }
+}
