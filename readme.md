@@ -10,6 +10,7 @@ npm install cloudqw-expired
 
 # use
 
+``` javascript
 var config = {
   protocol: 'http',
   host: 'localhost:3000',
@@ -18,3 +19,5 @@ var config = {
 }
 
 exp(config, 'http://localhost:5984/cloudq');
+
+```
