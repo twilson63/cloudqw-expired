@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Cloudqw-expired by twilson63</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/twilson63/cloudqw-expired">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Cloudqw-expired</h1>
+            <h2>A cloudq worker that bulk deletes any job that has been expired in cloudq</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/twilson63/cloudqw-expired/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/twilson63/cloudqw-expired/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>cloudqw-expired</h1>
+
+<p>Expired is a Cloudq worker that removes all expired jobs from cloudq</p>
+
+<h1>install</h1>
+
+<div class="highlight"><pre>npm install cloudqw-expired
+</pre></div>
+
+<h1>use</h1>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">protocol</span><span class="o">:</span> <span class="s1">'http'</span><span class="p">,</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s1">'localhost:3000'</span><span class="p">,</span>
+  <span class="nx">pathname</span><span class="o">:</span> <span class="s1">'/expired'</span><span class="p">,</span>
+  <span class="nx">interval</span><span class="o">:</span> <span class="mi">60000</span>
+<span class="p">}</span>
+
+<span class="nx">exp</span><span class="p">(</span><span class="nx">config</span><span class="p">,</span> <span class="s1">'http://localhost:5984/cloudq'</span><span class="p">);</span>
+</pre></div>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/twilson63">twilson63</a> can be found on <a href="https://github.com/twilson63/cloudqw-expired">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
