@@ -1,6 +1,6 @@
 {
   "name": "cloudqw-expired",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cloudq worker that deleted expired jobs on cloudq",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,19 @@
     "cloudq-worker": "0.0.2",
     "event-stream": "~2.2.0",
     "JSONStream": "~0.3.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twilson63/cloudqw-expired.git"
+  },
+  "keywords": [
+    "Expired",
+    "Worker",
+    "for",
+    "Cloudq"
+  ]
 }
