@@ -20,10 +20,13 @@ module.exports = function(qConfig, couchUrl, callback) {
     callback(null, job);
   }
 
-  var view = '/_design/expired/_view/today';
+  var view = '/view/expired/today';
   var worker = new Worker(qConfig, function(err, doc, done) {
-    var postToCouch = function(err, array){
-      request.post(couchUrl + '/_bulk_docs', { json: { docs: array }}, function(e, r, b){
+    var bulk = _.clone(qConfig);
+    bulk.pathname = '/bulk';
+    
+    var postBulk = function(err, array){
+      request.post(bulk.href, { json: { docs: array }}, function(e, r, b){
         done(doc.id, callback);
       });
     }
@@ -32,7 +35,7 @@ module.exports = function(qConfig, couchUrl, callback) {
       request(couchUrl + view),
       parseRows,
       es.map(bulkDelete),
-      es.writeArray(postToCouch)
+      es.writeArray(postBulk)
     );
 
   });
