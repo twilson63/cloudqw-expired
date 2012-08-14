@@ -9,8 +9,9 @@
   "author": "Tom Wilson",
   "license": "MIT",
   "dependencies": {
+    "underscore": "*",
     "request": "~2.10.0",
-    "cloudq-worker": "*",
+    "cloudq-worker": "0.0.5",
     "event-stream": "~2.2.0",
     "JSONStream": "~0.3.1"
   },

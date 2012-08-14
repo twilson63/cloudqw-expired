@@ -1,7 +1,9 @@
 var Worker = require('cloudq-worker').Worker,
   es = require('event-stream'),
   parseRows = require('JSONStream').parse(['rows', true]),
-  request = require('request');
+  request = require('request'),
+  url = require('url');
+  _ = require('underscore');
 
 // cloudq expired worker
 //
@@ -15,26 +17,24 @@ var Worker = require('cloudq-worker').Worker,
 //});
 
 module.exports = function(qConfig, callback) {
+  var view = _.clone(qConfig),
+  bulk = _.clone(qConfig);
+  view.pathname = '/view/expired/today';
+  bulk.pathname = '/bulk';
+
   var bulkDelete = function(data, callback) {
     var job = { _id: data.value._id, _rev: data.value._rev, _deleted: true };
     callback(null, job);
   }
 
-  var view = _.clone(qConfig)
-  var view.pathname = '/view/expired/today';
-  
   var worker = new Worker(qConfig, function(err, doc, done) {
-    var bulk = _.clone(qConfig);
-    bulk.pathname = '/bulk';
-    
     var postBulk = function(err, array){
-      request.post(bulk.href, { json: { docs: array }}, function(e, r, b){
+      request.post(url.format(bulk), { json: { docs: array }}, function(e, r, b){
         done(doc.id, callback);
       });
     }
-
     es.pipeline(
-      request(view),
+      request(url.format(view)),
       parseRows,
       es.map(bulkDelete),
       es.writeArray(postBulk)
