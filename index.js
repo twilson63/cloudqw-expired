@@ -10,17 +10,19 @@ var Worker = require('cloudq-worker').Worker,
 // then runs the callback when completed
 //
 // var exp = require('cloudqw-expired');
-// exp(config, urlObj.href, function(err, res){
+// exp(config, function(err, res){
 //  console.log('passed job to ' + urlObj.href);
 //});
 
-module.exports = function(qConfig, couchUrl, callback) {
+module.exports = function(qConfig, callback) {
   var bulkDelete = function(data, callback) {
     var job = { _id: data.value._id, _rev: data.value._rev, _deleted: true };
     callback(null, job);
   }
 
-  var view = '/view/expired/today';
+  var view = _.clone(qConfig)
+  var view.pathname = '/view/expired/today';
+  
   var worker = new Worker(qConfig, function(err, doc, done) {
     var bulk = _.clone(qConfig);
     bulk.pathname = '/bulk';
@@ -32,7 +34,7 @@ module.exports = function(qConfig, couchUrl, callback) {
     }
 
     es.pipeline(
-      request(couchUrl + view),
+      request(view),
       parseRows,
       es.map(bulkDelete),
       es.writeArray(postBulk)
