@@ -1,6 +1,6 @@
 {
   "name": "cloudqw-expired",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A cloudq worker that deleted expired jobs on cloudq",
   "main": "index.js",
   "scripts": {

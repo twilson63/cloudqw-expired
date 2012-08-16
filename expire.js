@@ -16,9 +16,9 @@ var cloudq = process.env.CLOUDQ; // || 'http://localhost:5984';
 
 module.exports = function(err, doc, done) {
   cloudq.pathname = '/view/expired/today';
-  var view = url.format(cloudq);
+  var view = url.formatcloudq);
   cloudq.pathname = '/bulk';
-  var bulk = url.format(bulk);
+  var bulk = url.format(cloudq);
 
   var postBulk = function(err, array){
     request.post(bulk, { json: { docs: array }}, function(e, r, b){
