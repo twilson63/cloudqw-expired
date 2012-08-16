@@ -16,7 +16,7 @@ var cloudq = process.env.CLOUDQ; // || 'http://localhost:5984';
 
 module.exports = function(err, doc, done) {
   cloudq.pathname = '/view/expired/today';
-  var view = url.formatcloudq);
+  var view = url.format(cloudq);
   cloudq.pathname = '/bulk';
   var bulk = url.format(cloudq);
 
