@@ -17,8 +17,8 @@ module.exports = function(err, doc, done) {
   var view = url.format(cloudq);
   cloudq.pathname = '/bulk';
   var bulk = url.format(cloudq);
-  console.log(view);
-  console.log(bulk);
+  // console.log(view);
+  // console.log(bulk);
   
   var postBulk = function(err, array){
     request.post(bulk, { json: { docs: array }}, function(e, r, b){
