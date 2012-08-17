@@ -13,5 +13,6 @@ var Worker = require('cloudq-worker').Worker,
 //});
 
 module.exports = function(qConfig, callback) {
-  return new Worker(qConfig, expire);
+  new Worker(qConfig, expire);
+  callback(null, 'Worker is running...');
 }

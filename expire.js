@@ -10,23 +10,23 @@ var bulkDelete = function(data, callback) {
   callback(null, job);
 }
 
-var cloudq = process.env.CLOUDQ; // || 'http://localhost:5984';
-
-//var cloudq = 'http://gmms-cloudq.herokuapp.com';
+var cloudq = JSON.parse(process.env.CLOUDQ); //|| 'http://localhost:5984';
 
 module.exports = function(err, doc, done) {
   cloudq.pathname = '/view/expired/today';
   var view = url.format(cloudq);
   cloudq.pathname = '/bulk';
   var bulk = url.format(cloudq);
-
+  console.log(view);
+  console.log(bulk);
+  
   var postBulk = function(err, array){
     request.post(bulk, { json: { docs: array }}, function(e, r, b){
-      console.log(b);
+      // console.log(b);
       done(doc.id, null);
     });
   }
-  
+
   es.pipeline(
     request(view),
     parseRows,
