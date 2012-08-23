@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/twilson63/cloudqw-expired.png)](http://travis-ci.org/twilson63/cloudqw-expired)
 # cloudqw-expired
 
 Expired is a Cloudq worker that removes all expired jobs from cloudq
